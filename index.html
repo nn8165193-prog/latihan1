@@ -812,47 +812,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- ===== Script Total Views (pakai CounterAPI.dev - lebih stabil dari CountAPI lama) ===== -->
+    <!-- ===== Script Total Views (pakai CountAPI - gratis, format respons pasti) ===== -->
     <script>
-        // Ganti workspace/counter di bawah kalau mau bikin counter unik untuk proyekmu sendiri.
-        // Format: https://api.counterapi.dev/v1/{workspace}/{counter}/up
-        const COUNTER_WORKSPACE = 'izman-ainun-portfolio';
-        const COUNTER_NAME = 'total-views';
-        const COUNTER_URL = `https://api.counterapi.dev/v1/${COUNTER_WORKSPACE}/${COUNTER_NAME}/up`;
-
-        // Fallback: kalau API down, tampilkan angka terakhir yang tersimpan di sesi ini
-        // supaya tidak terlihat "balik ke 0" secara mendadak di mata pengunjung.
-        const STORAGE_KEY = 'lastKnownTotalViews';
+        // Ganti 'izman-ainun-portfolio' dengan nama unik proyekmu kalau perlu
+        const COUNTER_KEY = 'izman-ainun-portfolio-total-views-v2';
+        const COUNTER_URL = `https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`;
 
         const viewsCountEl = document.getElementById('totalViews');
 
-        function showCount(total, bump) {
-            viewsCountEl.textContent = Number(total).toLocaleString('id-ID');
-            if (bump) {
-                viewsCountEl.classList.add('bump');
-                setTimeout(() => viewsCountEl.classList.remove('bump'), 250);
-            }
-        }
-
         async function trackTotalViews() {
-            // Tampilkan dulu angka terakhir (kalau ada) sambil menunggu request selesai
-            const cached = sessionStorage.getItem(STORAGE_KEY);
-            if (cached) showCount(cached, false);
-
             try {
                 const response = await fetch(COUNTER_URL);
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
+                // Respons CountAPI selalu: { key, message, value }
+                const total = Number(data.value) || 0;
 
-                // CounterAPI.dev merespons: { data: { up_count, down_count, count, ... } }
-                const total = Number(data?.data?.count ?? data?.count ?? data?.value) || 0;
-
-                showCount(total, true);
-                sessionStorage.setItem(STORAGE_KEY, String(total));
+                viewsCountEl.textContent = total.toLocaleString('id-ID');
+                viewsCountEl.classList.add('bump');
+                setTimeout(() => viewsCountEl.classList.remove('bump'), 250);
             } catch (err) {
                 console.error('Gagal mengambil data views:', err);
-                // Kalau gagal dan tidak ada cache sama sekali, baru tampilkan '-'
-                if (!cached) viewsCountEl.textContent = '-';
+                viewsCountEl.textContent = '-';
             }
         }
 
@@ -906,14 +887,10 @@
     <!-- ===== Script Kontak WhatsApp ===== -->
     <script>
         // ======================================================================
-        // Nomor WhatsApp Anda (format 62xxxxxxxxxx, tanpa tanda +, tanpa spasi/strip)
+        // GANTI NOMOR DI BAWAH INI dengan nomor WhatsApp Anda (format 62xxxxxxxxxx,
+        // tanpa tanda +, tanpa spasi/strip). Contoh: "6281234567890"
         // ======================================================================
-        const OWNER_WHATSAPP = "62882019215155";
-
-        // Penanda placeholder — dipakai HANYA untuk mendeteksi kalau developer lupa
-        // ganti nomor contoh saat menyalin template ini. Nomor asli di atas TIDAK
-        // akan pernah sama dengan string ini, jadi validasi tidak akan salah lagi.
-        const WHATSAPP_PLACEHOLDER = "GANTI_NOMOR_WHATSAPP_ANDA";
+        const OWNER_WHATSAPP = "62882019215155"; 
 
         function normalizeWA(raw) {
             let v = raw.replace(/[\s\-\(\)]/g, "");
@@ -974,7 +951,7 @@
 
             if (!valid) return;
 
-            if (!OWNER_WHATSAPP || OWNER_WHATSAPP === WHATSAPP_PLACEHOLDER) {
+            if (!OWNER_WHATSAPP || OWNER_WHATSAPP === "62882019215155") {
                 setContactError('message', 'Nomor tujuan belum diatur oleh pemilik halaman ini.');
                 return;
             }
