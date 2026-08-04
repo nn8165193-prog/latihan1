@@ -459,23 +459,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- ===== Script Total Views (pakai CounterAPI - gratis, tanpa API key) ===== -->
+    <!-- ===== Script Total Views (pakai CountAPI - gratis, format respons pasti) ===== -->
     <script>
         // Ganti 'izman-ainun-portfolio' dengan nama unik proyekmu kalau perlu
-        const COUNTER_NAMESPACE = 'izman-ainun-portfolio';
-        const COUNTER_NAME = 'total-views';
-        const COUNTER_URL = `https://api.counterapi.dev/v1/${COUNTER_NAMESPACE}/${COUNTER_NAME}/up`;
+        const COUNTER_KEY = 'izman-ainun-portfolio-total-views';
+        const COUNTER_URL = `https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`;
 
         const viewsCountEl = document.getElementById('totalViews');
 
         async function trackTotalViews() {
             try {
                 const response = await fetch(COUNTER_URL);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
-                // Struktur respons CounterAPI: { count: number, ... }
-                const total = data.count ?? data.data ?? 0;
+                // Respons CountAPI selalu: { key, message, value }
+                const total = Number(data.value) || 0;
 
-                viewsCountEl.textContent = Number(total).toLocaleString('id-ID');
+                viewsCountEl.textContent = total.toLocaleString('id-ID');
                 viewsCountEl.classList.add('bump');
                 setTimeout(() => viewsCountEl.classList.remove('bump'), 250);
             } catch (err) {
