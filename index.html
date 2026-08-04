@@ -75,6 +75,265 @@
             color: #94a3b8;
             letter-spacing: 0.5px;
         }
+
+        /* ===== About Me ===== */
+        #about {
+            background: #F4F6F8;
+            padding: 80px 0;
+        }
+        .about-wrap {
+            display: flex;
+            align-items: center;
+            gap: 56px;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+        .about-photo-col {
+            flex: 0 0 260px;
+            display: flex;
+            justify-content: center;
+        }
+        .about-photo {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #FFFFFF;
+            box-shadow: 0 20px 45px -18px rgba(20,30,45,0.28);
+            background: #E1E5E9;
+        }
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-content { flex: 1; min-width: 0; }
+        .about-eyebrow {
+            display: inline-block;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #1DA851;
+            background: rgba(37,211,102,0.12);
+            border-radius: 999px;
+            padding: 5px 14px;
+            margin-bottom: 14px;
+        }
+        .about-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1A2430;
+            margin-bottom: 4px;
+        }
+        .about-content .about-role {
+            font-size: 1.02rem;
+            color: #6B7684;
+            margin-bottom: 18px;
+        }
+        .about-content p.about-bio {
+            font-size: 0.97rem;
+            color: #4A5563;
+            line-height: 1.75;
+            max-width: 58ch;
+            margin-bottom: 24px;
+        }
+        .about-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+            margin-bottom: 26px;
+        }
+        .about-facts dt {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #9AA5B1;
+        }
+        .about-facts dd {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #1A2430;
+            margin-bottom: 0;
+        }
+        .about-links a {
+            display: inline-block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #1A2430;
+            text-decoration: none;
+            padding-bottom: 2px;
+            border-bottom: 2px solid #25D366;
+            margin-right: 20px;
+        }
+        .about-links a:hover { color: #1DA851; }
+
+        @media (max-width: 767px) {
+            .about-wrap { flex-direction: column; text-align: center; gap: 28px; }
+            .about-facts { grid-template-columns: 1fr 1fr; text-align: left; }
+            .about-content p.about-bio { margin-left: auto; margin-right: auto; }
+        }
+
+        /* ===== Pengalaman / Riwayat (Timeline) ===== */
+        #experience {
+            background: #FFFFFF;
+            padding: 70px 0;
+        }
+        .timeline {
+            position: relative;
+            max-width: 720px;
+            margin: 40px auto 0;
+            padding-left: 32px;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: #E1E5E9;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 36px;
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-dot {
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #25D366;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 0 0 2px #25D366;
+        }
+        .timeline-item.is-org .timeline-dot { background: #0D6EFD; box-shadow: 0 0 0 2px #0D6EFD; }
+        .timeline-item.is-edu .timeline-dot { background: #F0A500; box-shadow: 0 0 0 2px #F0A500; }
+        .timeline-year {
+            display: inline-block;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: #6B7684;
+            background: #F7F9FA;
+            border: 1px solid #E1E5E9;
+            border-radius: 999px;
+            padding: 3px 12px;
+            margin-bottom: 8px;
+        }
+        .timeline-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1A2430;
+            margin-bottom: 4px;
+        }
+        .timeline-org {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #25D366;
+            margin-bottom: 6px;
+        }
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: #6B7684;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===== Kontak WhatsApp ===== */
+        #contact {
+            background: #F4F6F8;
+            padding: 70px 0;
+        }
+        .wa-card {
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border: 1px solid #E4E8EC;
+            border-radius: 20px;
+            box-shadow: 0 20px 45px -20px rgba(20,30,45,0.15);
+            padding: 40px 36px 34px;
+        }
+        .wa-icon-badge {
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: rgba(37,211,102,0.12);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .wa-icon-badge svg { width: 30px; height: 30px; }
+        .wa-card h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1A2430;
+            margin-bottom: 6px;
+        }
+        .wa-card .wa-subtitle {
+            text-align: center;
+            font-size: 0.92rem;
+            color: #6B7684;
+            margin-bottom: 30px;
+        }
+        .wa-field { margin-bottom: 20px; }
+        .wa-field label {
+            display: block;
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: #1A2430;
+            margin-bottom: 8px;
+        }
+        .wa-field label .req { color: #D64545; }
+        .wa-field input,
+        .wa-field textarea {
+            width: 100%;
+            font-size: 0.95rem;
+            color: #1A2430;
+            background: #F7F9FA;
+            border: 1.5px solid #E1E5E9;
+            border-radius: 10px;
+            padding: 12px 14px;
+            outline: none;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        .wa-field textarea { resize: vertical; min-height: 96px; line-height: 1.5; }
+        .wa-field input:focus,
+        .wa-field textarea:focus {
+            border-color: #25D366;
+            box-shadow: 0 0 0 3px rgba(37,211,102,0.15);
+        }
+        .wa-field.has-error input { border-color: #D64545; }
+        .wa-error-msg { font-size: 0.8rem; color: #D64545; min-height: 1em; margin-top: 6px; }
+        .wa-hint { font-size: 0.78rem; color: #6B7684; margin-top: 6px; }
+        .wa-send-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%;
+            font-size: 0.98rem; font-weight: 600;
+            color: #FFFFFF;
+            background: #25D366;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 20px;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: background 0.15s ease, transform 0.1s ease;
+        }
+        .wa-send-btn svg { width: 19px; height: 19px; }
+        .wa-send-btn:hover { background: #1DA851; }
+        .wa-send-btn:active { transform: translateY(1px); }
+        .wa-sent-note {
+            text-align: center;
+            font-size: 0.82rem;
+            color: #1DA851;
+            font-weight: 600;
+            min-height: 1.2em;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -117,15 +376,15 @@
                             <li><a class="dropdown-item" href="#foto">Foto saya</a></li>
                             <li><a class="dropdown-item" href="#skills">Skills</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="#experience">Pengalaman / Riwayat</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" id="siteSearchForm">
+                    <input class="form-control me-2" type="search" id="siteSearchInput" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -208,58 +467,58 @@
         </div>
     </div>
 
-    <!-- ===== Hero / About Me ===== -->
-    <div class="hero-wrap" id="about">
-        <span class="dots">
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-        </span>
+    <!-- ===== About Me ===== -->
+    <section id="about">
+        <div class="container">
+            <div class="about-wrap">
 
-        <nav class="hero-nav">
-            <div class="home-label">HOME</div>
-            <ul>
-                <li>About Me</li>
-                <li>Portfolio</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
-
-        <div class="hero-body">
-            <div class="hero-media">
-                <div class="blob"></div>
-                <div class="portrait-main">
-                    <!-- Ganti dengan <img src="foto-laura.jpg" ...> -->
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFXBn1LxVTQ3DnVjSs6leK3uAPRWczi2eCHIOnmvZAkg&s=10" alt="joko">
+                <div class="about-photo-col">
+                    <div class="about-photo">
+                        <!-- Ganti src dengan foto Anda -->
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFXBn1LxVTQ3DnVjSs6leK3uAPRWczi2eCHIOnmvZAkg&s=10" alt="Foto Izman Ainun">
+                    </div>
                 </div>
-                <div class="portrait-small">
-                    <!-- Ganti dengan <img src="foto-laura-2.jpg" ...> -->
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+
+                <div class="about-content">
+                    <span class="about-eyebrow">Tentang Saya</span>
+                    <h2>Izman Ainun</h2>
+                    <p class="about-role">Calon Taruna &middot; Peminat Pendidikan Kedinasan</p>
+
+                    <p class="about-bio">
+                        Ganti paragraf ini dengan cerita singkat tentang diri Anda: latar belakang,
+                        motivasi mengikuti pendidikan kedinasan, dan hal yang sedang Anda persiapkan
+                        saat ini. Tulis dengan gaya bahasa Anda sendiri agar terasa personal.
+                    </p>
+
+                    <dl class="about-facts">
+                        <div>
+                            <dt>Asal</dt>
+                            <dd>Ganti kota Anda</dd>
+                        </div>
+                        <div>
+                            <dt>Sekolah</dt>
+                            <dd>Ganti nama sekolah</dd>
+                        </div>
+                        <div>
+                            <dt>Tujuan</dt>
+                            <dd>Ganti target Anda</dd>
+                        </div>
+                        <div>
+                            <dt>Status</dt>
+                            <dd>Ganti status saat ini</dd>
+                        </div>
+                    </dl>
+
+                    <div class="about-links">
+                        <a href="#experience">Pengalaman</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#contact">Kontak</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="hero-content">
-                <h1>Hi!<br>I am <span class="accent">Abang</span>.</h1>
-                <p class="lead">
-                    A UI/UX designer based in New York. I hope my 5 years
-                    experience of research and visual design can be helpful
-                    for your project.
-                </p>
-
-                <form class="subscribe" onsubmit="return false;">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit">Hire Me</button>
-                </form>
-
-                <div class="quick-links">
-                    <a href="#experience">Experience</a>
-                    <span class="sep">—</span>
-                    <a href="#skills">Skills</a>
-                    <span class="sep">—</span>
-                    <a href="#project">Project</a>
-                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- ===== Cards detail ===== -->
     <div class="container my-5" id="foto">
@@ -333,7 +592,7 @@
     </div>
 
     <!-- ===== Sidebar / Offcanvas ===== -->
-    <div class="text-center" id="foto">
+    <div class="text-center" id="sidebar-offcanvas">
         <div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark"
              aria-labelledby="offcanvasDarkLabel">
             <div class="offcanvas-header">
@@ -452,6 +711,99 @@
     <span class="badge rounded-pill bg-warning text-dark p-2 m-1"><i class="bi bi-cloud-fill"></i> REST API</span>
   </div>
 </div>
+
+    <!-- ===== Pengalaman / Riwayat ===== -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="text-center fw-bold">Pengalaman &amp; Riwayat</h2>
+            <p class="text-center text-muted mb-5">Perjalanan pendidikan, organisasi, dan kegiatan yang pernah saya ikuti</p>
+
+            <div class="timeline">
+
+                <div class="timeline-item is-edu">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-year">2024 — Sekarang</span>
+                    <h5 class="timeline-title">Siswa / Taruna</h5>
+                    <p class="timeline-org">Nama Sekolah / Akademi</p>
+                    <p class="timeline-desc">Ganti dengan cerita singkat pendidikan atau pelatihan yang sedang Anda jalani saat ini.</p>
+                </div>
+
+                <div class="timeline-item is-org">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-year">2023</span>
+                    <h5 class="timeline-title">Anggota Paskibraka</h5>
+                    <p class="timeline-org">Nama Kabupaten / Kota</p>
+                    <p class="timeline-desc">Ganti dengan pengalaman organisasi atau kegiatan yang pernah Anda ikuti, termasuk peran dan pencapaiannya.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-year">2022</span>
+                    <h5 class="timeline-title">Pelatihan Fisik &amp; Mental</h5>
+                    <p class="timeline-org">Nama Lembaga Pelatihan</p>
+                    <p class="timeline-desc">Ganti dengan pengalaman lain, misalnya pelatihan, kejuaraan, atau kegiatan komunitas yang relevan.</p>
+                </div>
+
+                <div class="timeline-item is-edu">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-year">2021</span>
+                    <h5 class="timeline-title">Lulus SMA / SMK</h5>
+                    <p class="timeline-org">Nama Sekolah</p>
+                    <p class="timeline-desc">Ganti dengan riwayat pendidikan sebelumnya, jurusan, dan pencapaian yang ingin ditonjolkan.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Kontak WhatsApp ===== -->
+    <section id="contact">
+        <div class="container">
+            <div class="wa-card">
+
+                <div class="wa-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58Zm-5.55 12.2h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.44-.16-.25a6.6 6.6 0 0 1 10.24-8.2 6.55 6.55 0 0 1 1.93 4.66 6.6 6.6 0 0 1-6.57 6.63Zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.45.1-.13.19-.5.64-.62.78-.11.13-.23.15-.42.05a5.4 5.4 0 0 1-1.6-.98 5.98 5.98 0 0 1-1.1-1.37c-.12-.2 0-.3.09-.4.1-.1.2-.24.3-.35.1-.12.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.45-1.08-.61-1.48-.16-.39-.33-.33-.45-.34h-.38c-.13 0-.35.05-.53.25-.18.19-.7.68-.7 1.66 0 .98.72 1.92.82 2.06.1.13 1.4 2.15 3.4 3.01.48.2.85.33 1.14.42.48.15.91.13 1.26.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.85.11-.94-.05-.08-.18-.13-.38-.23Z" fill="#1DA851"/>
+                    </svg>
+                </div>
+
+                <h2>Hubungi Saya</h2>
+                <p class="wa-subtitle">Kirim pesan langsung ke WhatsApp saya</p>
+
+                <form id="contactForm" novalidate>
+
+                    <div class="wa-field" id="field-name">
+                        <label for="wa-name">Nama Anda <span class="req">*</span></label>
+                        <input type="text" id="wa-name" placeholder="Masukkan nama lengkap">
+                        <div class="wa-error-msg" id="error-name"></div>
+                    </div>
+
+                    <div class="wa-field" id="field-wa">
+                        <label for="wa-number">Nomor WhatsApp Anda <span class="req">*</span></label>
+                        <input type="tel" id="wa-number" placeholder="Contoh: 08123456789" inputmode="tel">
+                        <div class="wa-hint">Wajib nomor Indonesia yang valid, agar saya bisa membalas Anda.</div>
+                        <div class="wa-error-msg" id="error-wa"></div>
+                    </div>
+
+                    <div class="wa-field" id="field-message">
+                        <label for="wa-message">Pesan / Komentar <span class="req">*</span></label>
+                        <textarea id="wa-message" placeholder="Tulis pesan atau komentar Anda di sini..."></textarea>
+                        <div class="wa-error-msg" id="error-message"></div>
+                    </div>
+
+                    <button type="submit" class="wa-send-btn">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58Z" fill="#FFFFFF"/>
+                        </svg>
+                        Kirim via WhatsApp
+                    </button>
+
+                    <div class="wa-sent-note" id="sentNote"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <footer style="text-align: center; padding: 20px; background-color: #1c1f26; color: #fff;">
         &copy; 2024 Abang. All rights reserved.
     </footer>
@@ -462,7 +814,7 @@
     <!-- ===== Script Total Views (pakai CountAPI - gratis, format respons pasti) ===== -->
     <script>
         // Ganti 'izman-ainun-portfolio' dengan nama unik proyekmu kalau perlu
-        const COUNTER_KEY = 'izman-ainun-portfolio-total-views';
+        const COUNTER_KEY = 'izman-ainun-portfolio-total-views-v2';
         const COUNTER_URL = `https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`;
 
         const viewsCountEl = document.getElementById('totalViews');
@@ -485,6 +837,134 @@
         }
 
         trackTotalViews();
+    </script>
+
+    <!-- ===== Script Pencarian Navbar (arahkan ke section) ===== -->
+    <script>
+        // Kata kunci -> id section tujuan. Tambah kata kunci lain di sini sesuai kebutuhan.
+        const SEARCH_MAP = [
+            { keywords: ['home', 'beranda'], target: '#home' },
+            { keywords: ['about', 'tentang', 'profil'], target: '#about' },
+            { keywords: ['foto', 'gambar', 'galeri'], target: '#foto' },
+            { keywords: ['skill', 'skills', 'keahlian', 'kemampuan'], target: '#skills' },
+            { keywords: ['pengalaman', 'riwayat', 'experience', 'organisasi'], target: '#experience' },
+            { keywords: ['kontak', 'contact', 'wa', 'whatsapp', 'hubungi'], target: '#contact' },
+        ];
+
+        const searchForm = document.getElementById('siteSearchForm');
+        const searchInput = document.getElementById('siteSearchInput');
+
+        function goToSection(target) {
+            const el = document.querySelector(target);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        if (searchForm && searchInput) {
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const q = searchInput.value.trim().toLowerCase();
+                if (!q) return;
+
+                const match = SEARCH_MAP.find(entry =>
+                    entry.keywords.some(k => q.includes(k) || k.includes(q))
+                );
+
+                if (match) {
+                    goToSection(match.target);
+                    searchInput.value = '';
+                    searchInput.blur();
+                } else {
+                    searchInput.classList.add('is-invalid');
+                    setTimeout(() => searchInput.classList.remove('is-invalid'), 1200);
+                }
+            });
+        }
+    </script>
+
+    <!-- ===== Script Kontak WhatsApp ===== -->
+    <script>
+        // ======================================================================
+        // GANTI NOMOR DI BAWAH INI dengan nomor WhatsApp Anda (format 62xxxxxxxxxx,
+        // tanpa tanda +, tanpa spasi/strip). Contoh: "6281234567890"
+        // ======================================================================
+        const OWNER_WHATSAPP = "62xxxxxxxxxx"; // <-- GANTI DENGAN NOMOR WA ANDA
+
+        function normalizeWA(raw) {
+            let v = raw.replace(/[\s\-\(\)]/g, "");
+            if (v.startsWith("+62")) v = "62" + v.slice(3);
+            else if (v.startsWith("0")) v = "62" + v.slice(1);
+            else if (v.startsWith("62")) v = v;
+            else return null;
+            return v;
+        }
+
+        function isValidIndoWA(v) {
+            return /^628[1-9][0-9]{6,10}$/.test(v);
+        }
+
+        const contactForm = document.getElementById('contactForm');
+        const sentNote = document.getElementById('sentNote');
+
+        function setContactError(fieldId, msg) {
+            const field = document.getElementById('field-' + fieldId);
+            const err = document.getElementById('error-' + fieldId);
+            if (msg) {
+                field.classList.add('has-error');
+                err.textContent = msg;
+            } else {
+                field.classList.remove('has-error');
+                err.textContent = '';
+            }
+        }
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            sentNote.textContent = '';
+
+            const nameEl = document.getElementById('wa-name');
+            const waEl = document.getElementById('wa-number');
+            const msgEl = document.getElementById('wa-message');
+
+            let valid = true;
+
+            if (!nameEl.value.trim()) {
+                setContactError('name', 'Nama belum diisi.');
+                valid = false;
+            } else setContactError('name', '');
+
+            const normalizedWA = normalizeWA(waEl.value.trim());
+            if (!waEl.value.trim()) {
+                setContactError('wa', 'Nomor WhatsApp belum diisi.');
+                valid = false;
+            } else if (!normalizedWA || !isValidIndoWA(normalizedWA)) {
+                setContactError('wa', 'Format nomor tidak sesuai. Gunakan 08xxxxxxxxxx atau +628xxxxxxxxxx.');
+                valid = false;
+            } else setContactError('wa', '');
+
+            if (!msgEl.value.trim()) {
+                setContactError('message', 'Pesan belum diisi.');
+                valid = false;
+            } else setContactError('message', '');
+
+            if (!valid) return;
+
+            if (!OWNER_WHATSAPP || OWNER_WHATSAPP === "62xxxxxxxxxx") {
+                setContactError('message', 'Nomor tujuan belum diatur oleh pemilik halaman ini.');
+                return;
+            }
+
+            const text =
+                `Halo, saya ${nameEl.value.trim()}.\n` +
+                `Nomor WA saya: ${waEl.value.trim()}\n\n` +
+                `Pesan:\n${msgEl.value.trim()}`;
+
+            const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+            sentNote.textContent = 'Membuka WhatsApp...';
+            window.open(url, '_blank');
+        });
     </script>
 </body>
 </html>
