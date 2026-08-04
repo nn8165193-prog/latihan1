@@ -887,8 +887,8 @@
     <!-- ===== Script Kontak WhatsApp ===== -->
     <script>
         // ======================================================================
-        // GANTI NOMOR DI BAWAH INI dengan nomor WhatsApp Anda (format 62xxxxxxxxxx,
-        // tanpa tanda +, tanpa spasi/strip). Contoh: "6281234567890"
+        // Nomor WhatsApp pemilik halaman (format 62xxxxxxxxxx, tanpa tanda +, 
+        // tanpa spasi/strip).
         // ======================================================================
         const OWNER_WHATSAPP = "62882019215155"; 
 
@@ -951,7 +951,7 @@
 
             if (!valid) return;
 
-            if (!OWNER_WHATSAPP || OWNER_WHATSAPP === "62882019215155") {
+            if (!OWNER_WHATSAPP) {
                 setContactError('message', 'Nomor tujuan belum diatur oleh pemilik halaman ini.');
                 return;
             }
