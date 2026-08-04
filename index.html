@@ -459,36 +459,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- ===== Script Total Views ===== -->
+    <!-- ===== Script Total Views (pakai CounterAPI - gratis, tanpa API key) ===== -->
     <script>
-        const VIEWS_STORAGE_KEY = 'total_website_views';
+        // Ganti 'izman-ainun-portfolio' dengan nama unik proyekmu kalau perlu
+        const COUNTER_NAMESPACE = 'izman-ainun-portfolio';
+        const COUNTER_NAME = 'total-views';
+        const COUNTER_URL = `https://api.counterapi.dev/v1/${COUNTER_NAMESPACE}/${COUNTER_NAME}/up`;
+
         const viewsCountEl = document.getElementById('totalViews');
 
         async function trackTotalViews() {
-            if (!window.storage) {
-                // Fallback jika dijalankan di luar Claude (window.storage tidak tersedia)
-                viewsCountEl.textContent = '—';
-                return;
-            }
             try {
-                let currentCount = 0;
-                try {
-                    const result = await window.storage.get(VIEWS_STORAGE_KEY, true);
-                    if (result && result.value) {
-                        currentCount = parseInt(result.value, 10) || 0;
-                    }
-                } catch (e) {
-                    currentCount = 0; // key belum pernah dibuat
-                }
+                const response = await fetch(COUNTER_URL);
+                const data = await response.json();
+                // Struktur respons CounterAPI: { count: number, ... }
+                const total = data.count ?? data.data ?? 0;
 
-                const newCount = currentCount + 1;
-                await window.storage.set(VIEWS_STORAGE_KEY, String(newCount), true);
-
-                viewsCountEl.textContent = newCount.toLocaleString('id-ID');
+                viewsCountEl.textContent = Number(total).toLocaleString('id-ID');
                 viewsCountEl.classList.add('bump');
                 setTimeout(() => viewsCountEl.classList.remove('bump'), 250);
             } catch (err) {
-                console.error('Storage error:', err);
+                console.error('Gagal mengambil data views:', err);
                 viewsCountEl.textContent = '-';
             }
         }
